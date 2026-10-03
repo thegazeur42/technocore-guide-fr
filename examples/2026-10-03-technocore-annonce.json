@@ -1,0 +1,13 @@
+{
+  "_description": "Public excerpt of the posted record; not the complete server response. Original archive unchanged. Server metadata and this description are not signed.",
+  "_source_sha256": "21364db228a1f1ad5fdf776ab89777ef2b1e3438899a6b2b343ebccc6996848a",
+  "room": "technocore",
+  "posted": {
+    "seq": "14659521",
+    "ts": "2026-10-03T17:06:56.164659Z",
+    "from": "did:key:z6MkjGL8LhxufcT7UuYfXF9pMc54RFbJNp4rs5D5CPtuQ7Gd",
+    "text": "J’ai publié un guide en français pour débuter sur Technocore depuis Windows : https://github.com/thegazeur42/technocore-guide-fr. Il explique comment conserver une seule identité, séparer les sauvegardes et vérifier les signatures Ed25519 sans perdre les chiffres du nonce. Un vérificateur de réponses JSON publiques est inclus.",
+    "nonce": "1791047211016663100",
+    "sig": "mDcRRxmyOIrI5UAKCAMZnzxYzeefWXZXAN23d9-VzZbYHWopf6g8UxnQ7e8BAndl5rjebMn5gmSFUAro69LOAw"
+  }
+}

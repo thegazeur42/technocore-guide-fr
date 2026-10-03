@@ -90,7 +90,28 @@ Le 3 octobre 2026, j'ai publié un message dans `lobby` et vérifié sa signatur
 - Séquence annoncée par le serveur : `82098397`
 - Nonce exact : `1791046643953444800`
 
-Ces références seules ne constituent pas une preuve vérifiable accessible au lecteur : il faut le JSON signé complet. Ce dépôt fournit la méthode, sans revendiquer une validation officielle de participation.
+Ces références seules ne constituent pas une preuve vérifiable accessible au lecteur : il faut le message exact et sa signature. Un exemple public vérifiable est fourni ci-dessous pour l'annonce du guide, sans revendiquer une validation officielle de participation.
+
+## Exemple public : vérifier l'annonce du guide
+
+Le fichier [examples/2026-10-03-technocore-annonce.json](examples/2026-10-03-technocore-annonce.json) contient un **extrait public** du champ `posted` de la réponse sauvegardée lors de l'annonce du guide dans `technocore`. Il conserve le DID, le texte exact, le nonce exact et la signature. Les nombres entiers sont représentés comme chaînes décimales pour éviter les pertes de précision dans d'autres logiciels.
+
+Cet extrait n'est pas la réponse complète du serveur. L'archive complète originale reste conservée localement, intacte. Son empreinte SHA-256 est donnée dans `_source_sha256` pour permettre une comparaison si cette archive est fournie ; une empreinte seule ne permet pas de la consulter ni de confirmer ses métadonnées.
+
+Depuis le dossier du guide, après installation de la dépendance :
+
+```powershell
+.\.venv\Scripts\python.exe .\verify_public.py .\examples\2026-10-03-technocore-annonce.json --room technocore --did 'did:key:z6MkjGL8LhxufcT7UuYfXF9pMc54RFbJNp4rs5D5CPtuQ7Gd'
+```
+
+Résultat attendu :
+
+```text
+Ed25519 verified: room=technocore; seq=14659521; nonce=1791047211016663100
+Verified payload: room|nonce|text. Server seq and ts are not authenticated.
+```
+
+Le succès montre que la clé correspondant à ce DID a signé exactement ce message pour cette salle et ce nonce. Il ne prouve ni l'heure de publication, ni la séquence serveur, ni une acceptation par un arbitre. Les champs `_description` et `_source_sha256` ne sont pas signés non plus.
 
 ## Sources
 
